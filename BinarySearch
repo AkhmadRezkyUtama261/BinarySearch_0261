@@ -5,8 +5,6 @@ int element[10];
 int nPanjang;
 int x;
 
-int element[10]; // Deklarasi variable global array dengan panjang 20 dan nama arr
-int n;           // Deklarasi variable global n untuk menyimpan elemen pada array
 
 void input()
 { // prosedur input
@@ -52,7 +50,9 @@ void bubbleSortArray()
             }
         }
         pass = pass + 1; // step 4
-    } while (pass <= n - 1); // step 5
+        cout << "n\Pass " << pass - 1 << "= ";
+        for (int k = 0; k < nPanjang; k++)
+    } while (pass <= nPanjang - 1); // step 5
 }
 
 void display()
@@ -70,11 +70,16 @@ void display()
             cout << " --> ";
         }
     }
+    cout << endl;
+    cout << endl;
+    cout << "Jumlah Pass= " << nPanjang - 1 << endl;
+    cout << endl;
+    cout << endl;
 }
 
 void binarySearch()
 {
-    cout << "Masukkan element yang ingin dicari =";
+    cout << "Masukkan element yang ingin dicari = ";
     cin >> x;                // step 1
     int low = 0;             // step2
     int high = nPanjang - 1; // step 3
@@ -84,7 +89,7 @@ void binarySearch()
         if (element[mid] == x)
         {                                // step 5
             cout << "Ditemukan" << endl; // step 5a
-            return;
+            return;                      // step 5b
         }
         if (x < element[mid])
         {                   // step 6
@@ -100,10 +105,12 @@ void binarySearch()
         cout << x << "Tidak ditemukan" << endl; // step 9
     }
 }
-int main (){
+
+int main()
+{
 
     input();
     bubbleSortArray();
     display();
-    
-    }
+    binarySearch();
+}
